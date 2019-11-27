@@ -21,7 +21,7 @@ Brotli  | ![](https://img.badgesize.io/0xbsec/cyberstyle.css/master/dist/cyberst
 
 CyberStyle.css only provides components. You will need to define your own layout.
 
-The recommended font for cyberstyle.css is *Odibee Sans*. Follow the Google Fonts instructions about how to include it, or simply include it as below:
+The recommended font for CyberStyle.css is *Odibee Sans*. Follow the Google Fonts instructions about how to include it, or simply include it as below:
 
 ```html
 <head>
