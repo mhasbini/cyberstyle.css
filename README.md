@@ -4,7 +4,7 @@ This style is inspired by [Tesla Cybertruck](https://www.tesla.com/cybertruck/) 
 
 # Demo
 
-Visit this page. Or https://htmlpreview.github.io/
+[Here](https://htmlpreview.github.io/?https://github.com/0xbsec/cyberstyle.css/blob/master/demo/demo.html) is a live demo.
 
 ![Demo](demo/demo.gif)
 
