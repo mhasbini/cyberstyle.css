@@ -1,0 +1,330 @@
+:root {
+  --shape-normal: polygon(0 0, 100% 0, 100% calc(100% - .625rem), calc(100% - .625rem) 100%, 0 100%);
+  --shape-thin: polygon(0 0,100% 0,100% calc(100% - .625rem),calc(100% - .625rem) 100%,0 100%,0 .095rem,0.095rem .095rem,0.095rem calc(100% - .095rem),calc(100% - .72rem) calc(100% - .095rem),calc(100% - .095rem) calc(100% - .72rem),calc(100% - .095rem) .095rem,0 .095rem);
+  --shape-large: polygon(0 0,100% 0,100% calc(100% - .625rem),calc(100% - .625rem) 100%,0 100%,0 .25rem,.25rem .25rem,.25rem calc(100% - .25rem),calc(100% - .75rem) calc(100% - .25rem),calc(100% - .25rem) calc(100% - 12px),calc(100% - .25rem) .25rem,0 .25rem);
+  --btn-border-width: .18rem;
+  --input-border-with: .065rem;
+}
+
+.cybr-btn {
+  color: #fff;
+  background-color: #fff;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition: .5s ease;
+  clip-path: var(--shape-normal);
+  font-weight: 600;
+  font-size: .75rem;
+  height: 1.875rem;
+  letter-spacing: .125rem;
+  padding: 0 1.875rem;
+  position: relative;
+}
+
+.cybr-btn::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #000;
+  top: var(--btn-border-width);
+  left: var(--btn-border-width);
+  width: calc(100% - 2 * var(--btn-border-width));
+  height: calc(100% - 2 * var(--btn-border-width));
+  clip-path: var(--shape-normal);
+  z-index: -1;
+}
+
+.cybr-btn:hover {
+  color: #000;
+  background-color: #fff;
+  transition: .52s ease .48s;
+  animation: lighting-effect 1s forwards;
+}
+
+.cybr-btn:hover::after {
+  background-color: #fff;
+}
+
+.cybr-btn[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.cybr-btn[disabled]:hover, .cybr-btn[disabled]:hover::after {
+  color: #fff;
+  background-color: none;
+  transition: none;
+  animation: none;
+}
+
+.cybr-btn[disabled]::after {
+  background-color: #000;
+}
+
+.cybr-hr {
+    border: 0;
+    opacity: .7;
+    height: .7rem;
+    background: linear-gradient(90deg, #fff 0, #fff 55%, rgba(255, 255, 255, .1));
+}
+
+
+.cybr-label {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #fff;
+  user-select: none;
+}
+
+.cybr-input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    position: relative;
+}
+
+.cybr-input-wrapper::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  top: calc(var(--input-border-with) * -1px);
+  left: calc(var(--input-border-with) * -1px);
+  width: calc(100% + 2 * var(--input-border-with));
+  height: calc(100% + 2 * var(--input-border-with));
+  clip-path: var(--shape-thin);
+  transition: .5s ease;
+  z-index: 1;
+}
+
+.cybr-input {
+  color: #fff;
+  background-color: #000;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  flex: 2;
+  transition: .5s ease;
+  font-size: 1rem;
+  height: 1.5rem;
+  padding: .7rem;
+  position: relative;
+}
+
+.cybr-input[disabled] {
+  cursor: not-allowed;
+}
+
+.cybr-input-disabled.cybr-input-wrapper::before {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.cybr-input-wrapper:focus-within::before {
+  clip-path: var(--shape-large);
+}
+
+
+.cybr-input-wrapper.cybr-input-error::before {
+  background-color: #dc3545;
+}
+
+
+.cybr-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.cybr-checkbox + label.cybr-label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cybr-checkbox + label.cybr-label:before {
+  content: '';
+  margin-right: .625rem;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: black;
+  border: .0625rem solid #888;
+}
+
+.cybr-checkbox:hover + label.cybr-label:before {
+  border-color: #fff;
+}
+
+.cybr-checkbox:focus + label.cybr-label:before {
+  box-shadow: 0 0 0 .1875rem rgba(0, 0, 0, .12);
+}
+
+.cybr-checkbox:checked + label.cybr-label:before {
+  border-color: #fff;
+}
+
+.cybr-checkbox:disabled + label.cybr-label {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.cybr-checkbox:disabled + label.cybr-label:before {
+  opacity: .9;
+  border-color: initial;
+}
+
+.cybr-checkbox:checked + label.cybr-label:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  left: .1875rem;
+  top: .1875rem;
+  width: 1rem;
+  height: 1rem;
+  animation: lighting-effect-deep 1s forwards;
+}
+
+.cybr-radio:checked,
+.cybr-radio:not(:checked) {
+    position: absolute;
+    opacity: 0;
+}
+
+.cybr-radio:checked + label.cybr-label,
+.cybr-radio:not(:checked) + label.cybr-label
+{
+    position: relative;
+    padding-left: 1.75rem;
+    cursor: pointer;
+    line-height: 1.25rem;
+    display: inline-block;
+}
+
+.cybr-radio:checked + label.cybr-label:before,
+.cybr-radio:not(:checked) + label.cybr-label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: .0625rem solid #888;
+    border-radius: 100%;
+    background: #000;
+}
+
+.cybr-radio:checked + label.cybr-label:after,
+.cybr-radio:not(:checked) + label.cybr-label:after {
+    content: '';
+    width: .875rem;
+    height: .875rem;
+    background: #fff;
+    position: absolute;
+    top: .1875rem;
+    left: .1875rem;
+    border-radius: 100%;
+}
+
+.cybr-radio:not(:checked) + label.cybr-label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.cybr-radio:checked + label.cybr-label:after {
+  opacity: 1;
+  transform: scale(1);
+  animation: lighting-effect-deep 1s forwards;
+}
+
+.cybr-radio:checked + label.cybr-label:before {
+  border-color: #fff;
+}
+
+.cybr-radio:disabled + label.cybr-label {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.cybr-radio:disabled + label.cybr-label:before {
+  opacity: .9;
+  border-color: initial;
+}
+
+.cybr-radio:not(:checked):hover + label.cybr-label:before {
+  border-color: #fff;
+}
+
+/*0.0625*/
+
+
+@keyframes lighting-effect {
+    0% {
+        opacity: 1
+    }
+
+    8% {
+        opacity: .75
+    }
+
+    16% {
+        opacity: 1
+    }
+
+    24% {
+        opacity: .75
+    }
+
+    32% {
+        opacity: 1
+    }
+
+    40% {
+        opacity: .75
+    }
+
+    48% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes lighting-effect-deep {
+    0% {
+        opacity: 1
+    }
+
+    8% {
+        opacity: .5
+    }
+
+    16% {
+        opacity: 1
+    }
+
+    24% {
+        opacity: .5
+    }
+
+    32% {
+        opacity: 1
+    }
+
+    40% {
+        opacity: .5
+    }
+
+    48% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 1
+    }
+}

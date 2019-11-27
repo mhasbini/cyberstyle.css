@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CyberStyle demo</title>
+  <link href="../src/cyberstyle.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="demo">
+    <h1 id="title">CyberStyle demo</h1>
+    <fieldset id="checkbox" align="left">
+      <legend><code>checkbox</code></legend>
+
+      <div id="checkbox-unchecked" class="demo-item">
+        <input class="cybr-checkbox" id="cybr-checkbox2" type="checkbox">
+        <label class="cybr-label" for="cybr-checkbox2">Checkbox</label>
+      </div>
+
+      <div id="checkbox-checked" class="demo-item">
+        <input class="cybr-checkbox" id="cybr-checkbox1" type="checkbox" checked>
+        <label class="cybr-label" for="cybr-checkbox1">Checked</label>
+      </div>
+
+      <div id="checkbox-disabled" class="demo-item">
+        <input class="cybr-checkbox" id="cybr-checkbox3" type="checkbox" disabled>
+        <label class="cybr-label" for="cybr-checkbox3">Disabled</label>
+      </div>
+    </fieldset>
+
+    <fieldset id="radio" align="left">
+      <legend><code>radio button</code></legend>
+
+      <div id="radio-unchecked" class="demo-item">
+        <input class="cybr-radio" id="cybr-radio2" name="radio-group" type="radio">
+        <label class="cybr-label" for="cybr-radio2">Radio</label>
+      </div>
+
+      <div id="radio-cheched" class="demo-item">
+        <input class="cybr-radio" id="cybr-radio1" name="radio-group" type="radio" checked>
+        <label class="cybr-label" for="cybr-radio1">Selected</label>
+      </div>
+
+      <div id="radio-disabled" class="demo-item">
+        <input class="cybr-radio" id="cybr-radio3" name="radio-group" type="radio" disabled>
+        <label class="cybr-label" for="cybr-radio3">Disabled</label>
+      </div>
+    </fieldset>
+
+    <fieldset id="button" align="left">
+      <legend><code>button</code></legend>
+      <div id="button-normal" class="demo-item">
+        <button class="cybr-btn">Button</button>
+      </div>
+
+      <div id="button-disabled" class="demo-item">
+        <button class="cybr-btn" disabled>Disabled</button>
+      </div>
+    </fieldset>
+
+    <fieldset id="hr" align="left">
+      <legend><code>hr</code></legend>
+      <div id="hr" class="demo-item">
+        <hr class="cybr-hr">
+      </div>
+    </fieldset>
+
+    <fieldset id="input" align="left">
+      <legend><code>input</code></legend>
+      <div id="input-normal" class="demo-item">
+        <label class="cybr-label cybr-bm">Input</label>
+        <br><br>
+        <div class="cybr-input-wrapper">
+          <input type="string" name="Test" class="cybr-input">
+        </div>
+      </div>
+
+      <div id="input-error" class="demo-item">
+        <label class="cybr-label cybr-bm">Error</label>
+        <br><br>
+        <div class="cybr-input-wrapper cybr-input-error">
+          <input type="string" name="Test" class="cybr-input">
+        </div>
+      </div>
+
+      <div id="input-disabled" class="demo-item">
+        <label class="cybr-label cybr-bm">Disabled</label>
+        <br><br>
+        <div class="cybr-input-disabled cybr-input-wrapper">
+          <input type="string" name="Test" class="cybr-input" disabled>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <style type="text/css">
+    body {
+      background-color: black;
+      color: #fff;
+    }
+
+    #demo {
+      display: grid;
+
+      grid-template-areas:
+        ". title ."
+        "checkbox radio button"
+        "hr hr hr"
+        "input input .";
+
+      grid-gap: 2em;
+      margin: 2em 4em;
+
+      font-family: 'Odibee+Sans', sans-serif;
+    }
+
+    #checkbox {
+      grid-area: checkbox;
+    }
+
+    #radio {
+      grid-area: radio;
+    }
+
+    #button {
+      grid-area: button;
+    }
+
+    #hr {
+      grid-area: hr;
+    }
+
+    #input {
+      grid-area: input;
+    }
+
+    #title {
+      grid-area: title;
+      text-align: center;
+    }
+    .demo-item {
+      margin: 1em;
+    }
+
+    fieldset {
+      border: thin groove #fff;
+      color: #fff;
+      padding: 1.5em;
+    }
+
+    legend {
+      padding: 0 .7em;
+    }
+
+    @media screen and (max-width: 768px) {
+      #demo {
+        grid-template-areas:
+          ". title ."
+          "checkbox radio ."
+          "button . ."
+          "hr hr ."
+          "input input .";
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      #demo {
+        grid-template-areas:
+          "title"
+          "checkbox"
+          "radio"
+          "button"
+          "hr"
+          "input";
+      }
+    }
+  </style>
+</body>
+</html>
